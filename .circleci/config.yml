@@ -1,5 +1,6 @@
 version: 2.1
 orbs:
+  # Declare a dependency on the welcome-orb        
   docker: circleci/docker@1.0.0
 workflows:
   deploy:
