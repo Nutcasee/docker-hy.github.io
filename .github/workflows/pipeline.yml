@@ -21,22 +21,22 @@ jobs:
     # if: ${{ github.event_name == 'push' }}
     # if: contains(join(github.event.commits.*.message, ', '), '#skip') == 'false'
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
+      # - uses: actions/checkout@v2
+      # - uses: actions/setup-node@v1
+      #   with:
+      #     node-version: '12.x'
       # - name: Start MongoDB
       #   uses: supercharge/mongodb-github-action@1.3.0
       #   with:
       #     mongodb-version: '4.0'
           # mongodb-version: '${{ matrix.mongodb-version }}'
 
-      - name: npm install
-        run: npm install
-      - name: lint
-        run: npm run eslint
-      - name: build
-        run: npm run build
+      # - name: npm install
+      #   run: npm install
+      # - name: lint
+      #   run: npm run eslint
+      # - name: build
+      #   run: npm run build
       # - name: test
       #   run: npm run test
       # - name: e2e tests
@@ -47,7 +47,7 @@ jobs:
       #     start: npm run start:test
       #     wait-on: http://localhost:3001
 
-        if: ${{ github.event_name == 'push' }}
+        # if: ${{ github.event_name == 'push' }}
 
       # - uses: 8398a7/action-slack@v3
       #   with:
@@ -75,13 +75,13 @@ jobs:
       - uses: akhileshns/heroku-deploy@v3.8.8 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "your-own-pipeline-bloglist" #Must be unique in Heroku
-          heroku_email: "nexustivi@gmail.com"
-          healthcheck: https://your-own-pipeline-bloglist.herokuapp.com/health
-          checkstring: ok
+          heroku_app_name: "docker-hy-github-io-3-2-part3" #Must be unique in Heroku
+          heroku_email: "tranluc2007@gmail.com"
+          # healthcheck: https://your-own-pipeline-bloglist.herokuapp.com/health
+          # checkstring: ok
           rollbackonhealthcheckfailed: true
       
-      - name: Bump version and push tag
-        uses: anothrNick/github-tag-action@1.33.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Bump version and push tag
+      #   uses: anothrNick/github-tag-action@1.33.0
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
