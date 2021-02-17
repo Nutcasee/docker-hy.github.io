@@ -12,8 +12,7 @@ services:
                 container_name: coursematerial
           watchtower:
                 command: 
-                        --interval 300 
-
+                        --interval 300
                 image: containrrr/watchtower
                 volumes:
                         - /var/run/docker.sock:/var/run/docker.sock
